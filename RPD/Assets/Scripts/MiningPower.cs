@@ -29,7 +29,7 @@ public class MiningPower : MonoBehaviour
         while(true)
         {
             mineral += mineralIncreasing;
-            Debug.Log("mineral : " + mineral);
+            //Debug.Log("mineral : " + mineral);
             yield return new WaitForSeconds(1.0f);
         }
 
