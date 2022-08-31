@@ -11,13 +11,33 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject startUnitPosition;
 
-    float interval = 0.5f;
+    [SerializeField]
+    UnitPaths unitPaths;
+
+    public UnitPaths GetUnitPaths => unitPaths;
+
+    // interval = 0.5f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("RepeatUnitSpawn", 0.1f, interval);
+        //InvokeRepeating("RepeatUnitSpawn", 0.1f, interval); // 코루틴으로 변경할 것.
+
+        StartCoroutine(StartUnitSpawn());
+    }
+
+    IEnumerator StartUnitSpawn()
+    {
+        while(true)
+        {
+            Vector3 pos = startUnitPosition.transform.position;
+            GameObject go = Instantiate(unitPrefab, pos, startUnitPosition.transform.rotation);
+            Unit ut = go.GetComponent<Unit>();
+            ut.Init(unitPaths);
+
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     // Update is called once per frame
@@ -67,10 +87,12 @@ public class GameManager : MonoBehaviour
 
     // unity 메세지 구현
 
-    void RepeatUnitSpawn()
-    {
-        Vector3 pos = startUnitPosition.transform.position;
-        pos.z = 0;
-        Instantiate(unitPrefab, pos, startUnitPosition.transform.rotation);
-    }
+    //void RepeatUnitSpawn()
+    //{
+    //    Vector3 pos = startUnitPosition.transform.position;
+    //    pos.z = 0;
+    //    GameObject go = Instantiate(unitPrefab, pos, startUnitPosition.transform.rotation);
+    //    Unit ut = go.GetComponent<Unit>();
+    //    ut.Init(unitPaths);
+    //}
 }

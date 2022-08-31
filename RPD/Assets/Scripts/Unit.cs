@@ -7,10 +7,17 @@ public class Unit : MonoBehaviour
     [SerializeField]
     List<GameObject> unitpathes = new List<GameObject>();
 
+    UnitPaths _unitPaths;
+
     int currentPathIndex = 0;
 
     [SerializeField]
     float UnitSpeed;
+
+    public void Init(UnitPaths unitPaths)
+    {
+        _unitPaths = unitPaths;
+    }
 
     // Update is called once per frame
     void Update()
