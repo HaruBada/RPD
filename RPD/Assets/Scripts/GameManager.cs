@@ -2,10 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     Figure _currentFigure;
+    public Figure CurrentFigure 
+    { 
+        get
+        {
+            return _currentFigure;
+        }
+        set
+        {
+            _currentFigure = value;
+        }
+    }
 
+        
     [SerializeField]
     GameObject unitPrefab;
     [SerializeField]
@@ -22,9 +34,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("RepeatUnitSpawn", 0.1f, interval); // ÄÚ·çÆ¾À¸·Î º¯°æÇÒ °Í.
+        //InvokeRepeating("RepeatUnitSpawn", 0.1f, interval); // ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 
-        StartCoroutine(StartUnitSpawn());
+        // Coroutine c = StartCoroutine(StartUnitSpawn());
+        // StopCoroutine(c);
+
+        StartCoroutine("StartUnitSpawn");
+        // StopCoroutine("StartUnitSpawn");
+
+        // 
+        // Vector3.forward * GameTime._deltaTime;
+
     }
 
     IEnumerator StartUnitSpawn()
@@ -43,23 +63,23 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_currentFigure && Input.GetMouseButtonDown(0))
-        {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Ray2D ray = new Ray2D(pos, Vector2.zero);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        // if (!_currentFigure && Input.GetMouseButtonDown(0))
+        // {
+        //     Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //     Ray2D ray = new Ray2D(pos, Vector2.zero);
+        //     RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-            if (hit.collider != null)
-            {
-                //Debug.Log(hit.collider.name);
-                _currentFigure = hit.collider.GetComponent<Figure>();
-            }
-        }
+        //     if (hit.collider != null)
+        //     {
+        //         //Debug.Log(hit.collider.name);
+        //         _currentFigure = hit.collider.GetComponent<Figure>();
+        //     }
+        // }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            _currentFigure = null;
-        }
+        // if (Input.GetMouseButtonUp(0))
+        // {
+        //     _currentFigure = null;
+        // }
 
         if(_currentFigure)
         {
@@ -76,8 +96,8 @@ public class GameManager : MonoBehaviour
         //    RaycastHit hit;
 
         //    // ref out
-        //    // ref - ¹Ù²ð ¼öµµ ÀÖ°í ¾Æ´Ï±âµµ ÇÏ°í ÂüÁ¶
-        //    // out - null ÀÌµç °ªÀÌµç º¯È­ÀÖÀ½, ¼¼ÆÃÇØÁà¾ßÇÔ
+        //    // ref - ï¿½Ù²ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½Æ´Ï±âµµ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //    // out - null ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //    if (Physics.Raycast(ray, out hit))
         //    {
         //        Debug.Log(hit.collider.name);
@@ -85,7 +105,7 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-    // unity ¸Þ¼¼Áö ±¸Çö
+    // unity ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     //void RepeatUnitSpawn()
     //{

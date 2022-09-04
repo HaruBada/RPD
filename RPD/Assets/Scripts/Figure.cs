@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class Figure : MonoBehaviour
 {
-    int collisionCount;
+    GameManager gameManager;
+    List<GameObject> collisionObject = new List<GameObject>();
+    [SerializeField]
+    GameObject upgreatFigure;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collisionCount += 1;
-        Debug.Log("collistion Count : " + collisionCount);
-        if (collisionCount == 2) // 3°³ÀÇ µµÇüÀÌ °ãÄ¡¸é ¹İÀÀÇÏµµ·Ï À¯µµ ÇÏÁö¸¸ 3¹ø È£Ãâ..
+        // ë‚´ê°€ ë§Œì•½ CurrentFigure ë¼ë©´
+        // ì¶œëŒí•œ ì˜¤ë¸Œì íŠ¸ë¥¼ ê²Œì„ ë§¤ë‹ˆì €ì— ì „ë‹¬
+        collisionObject.Add(collision.gameObject);
+        if(gameManager.CurrentFigure && collisionObject.Count == 2)
         {
-            Debug.Log("collision 3");
-            
+            for(int i = 0; i < 2; i++)
+            {
+                GameObject removeObject = collisionObject[0];
+                collisionObject.RemoveAt(0);
+                Destroy(removeObject);
+            }
+            GameObject upgreatedFigure = Instantiate(upgreatFigure);
+            Destroy(gameObject);
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collisionCount -= 1;
-        Debug.Log("collistion Count : " + collisionCount);
+        collisionObject.Remove(collision.gameObject);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameManager.Instance;
     }
 
     // Update is called once per frame
@@ -33,4 +43,13 @@ public class Figure : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown() {
+        gameManager.CurrentFigure = this;
+    }
+
+    private void OnMouseUp() {
+        gameManager.CurrentFigure = null;
+    }
+
 }

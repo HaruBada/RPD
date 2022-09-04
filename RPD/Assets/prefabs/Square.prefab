@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9136825755390001290}
   - component: {fileID: 9136825755390001291}
   - component: {fileID: 9136825755390001289}
-  - component: {fileID: 9136825755390001288}
   - component: {fileID: 178757723740481118}
+  - component: {fileID: -5512027092859480728}
   m_Layer: 0
   m_Name: Square
   m_TagString: Square0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -1723736715, guid: 4ac1ea4d6e2dd274ba0827bcaa6c610a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.08, y: 1.09}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -113,18 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9136825755390001288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9136825755390001292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8d4d4af6f1165428f548781c3f1c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &178757723740481118
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5512027092859480728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136825755390001292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93da408702c536b42b8653f161b7f685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgreatFigure: {fileID: 3185297200278180465, guid: cc434693b3c81b845b09418effc384a4, type: 3}

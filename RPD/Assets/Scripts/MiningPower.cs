@@ -44,11 +44,12 @@ public class MiningPower : MonoBehaviour
         }
         miningPower += 1;
         mineralIncreasing += 1;
+        uiMiningPower.text = "Mining Power Upgrate : " + miningPower + "/" + maxMiningPower;
     }
 
     // Update is called once per frame
     void Update()
     {
-        uiMiningPower.text = "Mining Power Upgrate : " + miningPower + "/" + maxMiningPower;
+        
     }
 }
