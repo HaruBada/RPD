@@ -81,12 +81,12 @@ public class GameManager : Singleton<GameManager>
         //     _currentFigure = null;
         // }
 
-        if(_currentFigure)
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-            _currentFigure.transform.position = pos;
-        }
+        //if(_currentFigure)
+        //{
+        //    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    pos.z = 0;
+        //    _currentFigure.transform.position = pos;
+        //}
 
         // 3D Raycast
         //if(Input.GetMouseButtonDown(0))

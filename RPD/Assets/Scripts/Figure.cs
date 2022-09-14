@@ -6,13 +6,12 @@ public class Figure : MonoBehaviour
 {
     GameManager gameManager;
     List<GameObject> collisionObject = new List<GameObject>();
+
     [SerializeField]
     GameObject upgreatFigure;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 내가 만약 CurrentFigure 라면
-        // 출돌한 오브젝트를 게임 매니저에 전달
         collisionObject.Add(collision.gameObject);
         if(gameManager.CurrentFigure && collisionObject.Count == 2)
         {
@@ -46,10 +45,18 @@ public class Figure : MonoBehaviour
 
     private void OnMouseDown() {
         gameManager.CurrentFigure = this;
+        Debug.Log("touch : " + this.name);
     }
 
-    private void OnMouseUp() {
-        gameManager.CurrentFigure = null;
+    //private void OnMouseUp() {
+    //    gameManager.CurrentFigure = null;
+    //}
+
+    private void OnMouseDrag()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        this.transform.position = pos;
     }
 
 }

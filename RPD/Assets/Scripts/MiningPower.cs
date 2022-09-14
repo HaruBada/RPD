@@ -6,8 +6,8 @@ using TMPro;
 public class MiningPower : MonoBehaviour
 {
     public TextMeshProUGUI uiMiningPower;
-
-    int mineral;
+    public TextMeshProUGUI uiMineral;
+    PropertyManager propertyManager;
 
     int miningPower;
     int maxMiningPower = 100;
@@ -18,7 +18,7 @@ public class MiningPower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mineral = 0;
+        propertyManager = PropertyManager.Instance;
         miningPower = 0;
         mineralIncreasing = 10;
         StartCoroutine("Mining");
@@ -28,7 +28,8 @@ public class MiningPower : MonoBehaviour
     {
         while(true)
         {
-            mineral += mineralIncreasing;
+            propertyManager.Mineral += mineralIncreasing;
+            uiMineral.text = "mineral : " + propertyManager.Mineral;
             //Debug.Log("mineral : " + mineral);
             yield return new WaitForSeconds(1.0f);
         }
