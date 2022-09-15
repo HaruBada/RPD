@@ -39,9 +39,4 @@ public class PropertyManager : Singleton<PropertyManager>
         _mineral = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

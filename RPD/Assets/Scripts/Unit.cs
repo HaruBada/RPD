@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField]
-    List<GameObject> unitpathes = new List<GameObject>();
-
     UnitPaths _unitPaths;
 
     int currentPathIndex = 0;
@@ -22,13 +19,13 @@ public class Unit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentPathIndex >= unitpathes.Count)
+        if (currentPathIndex >= _unitPaths.GetPaths.Count)
         {
             currentPathIndex = 0;
             return;
         }
 
-        var currentPath = unitpathes[currentPathIndex].transform.position;
+        var currentPath = _unitPaths.GetPaths[currentPathIndex].transform.position;
         var currentPos = transform.position;
 
         // 방향 백터

@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("RepeatUnitSpawn", 0.1f, interval); // �ڷ�ƾ���� ������ ��.
 
         // Coroutine c = StartCoroutine(StartUnitSpawn());
         // StopCoroutine(c);
@@ -105,14 +104,4 @@ public class GameManager : Singleton<GameManager>
         //}
     }
 
-    // unity �޼��� ����
-
-    //void RepeatUnitSpawn()
-    //{
-    //    Vector3 pos = startUnitPosition.transform.position;
-    //    pos.z = 0;
-    //    GameObject go = Instantiate(unitPrefab, pos, startUnitPosition.transform.rotation);
-    //    Unit ut = go.GetComponent<Unit>();
-    //    ut.Init(unitPaths);
-    //}
 }

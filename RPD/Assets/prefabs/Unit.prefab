@@ -97,9 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b90b8022cc050b4a9a5719c5de027a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitpathes:
-  - {fileID: 8079829544053970751, guid: fdf02083fd337f646bc30f29d15d8edc, type: 3}
-  - {fileID: 768560586274318419, guid: 4e17c145b0f271b4fbf845fd0f2ce823, type: 3}
-  - {fileID: 1309508678591857639, guid: 82e665b321b629247b0f1f23ecc944c8, type: 3}
-  - {fileID: 6537332013673263296, guid: c3400880190f5c54399b5913c03e2072, type: 3}
   UnitSpeed: 2

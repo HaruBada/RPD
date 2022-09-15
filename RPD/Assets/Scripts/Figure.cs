@@ -45,7 +45,7 @@ public class Figure : MonoBehaviour
 
     private void OnMouseDown() {
         gameManager.CurrentFigure = this;
-        Debug.Log("touch : " + this.name);
+        //Debug.Log("touch : " + this.name);
     }
 
     //private void OnMouseUp() {

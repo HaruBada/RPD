@@ -30,7 +30,6 @@ public class MiningPower : MonoBehaviour
         {
             propertyManager.Mineral += mineralIncreasing;
             uiMineral.text = "mineral : " + propertyManager.Mineral;
-            //Debug.Log("mineral : " + mineral);
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -48,9 +47,4 @@ public class MiningPower : MonoBehaviour
         uiMiningPower.text = "Mining Power Upgrate : " + miningPower + "/" + maxMiningPower;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

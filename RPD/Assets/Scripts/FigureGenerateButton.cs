@@ -5,12 +5,29 @@ using UnityEngine;
 public class FigureGenerateButton : MonoBehaviour
 {
     [SerializeField]
-    GameObject FigurePrefab;
+    GameObject squarePrefab;
+    [SerializeField]
+    GameObject circlePrefab;
+    [SerializeField]
+    GameObject trianglePrefab;
+
 
     public void OnBotton()
     {
-        //Debug.Log("Figure Button Start");
-        Instantiate(FigurePrefab);
-        //Debug.Log("Figure Button End");
+        int figureRandom = Random.Range(0,100) % 3 + 1;
+
+        switch (figureRandom)
+        {
+            case 1:
+                Instantiate(squarePrefab);
+                break;
+            case 2:
+                Instantiate(circlePrefab);
+                break;
+            case 3:
+                Instantiate(trianglePrefab);
+                break;
+        }
+
     }
 }

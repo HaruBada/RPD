@@ -270,7 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fe4db15482a68478b1b591ff3a59c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FigurePrefab: {fileID: 9136825755390001292, guid: 68458c6e32dbe1f459fae20a4041e3ea, type: 3}
+  squarePrefab: {fileID: 9136825755390001292, guid: 68458c6e32dbe1f459fae20a4041e3ea, type: 3}
+  circlePrefab: {fileID: 5477985693439521916, guid: b9c6d54fc2fc149478ec42d9ade0a92c, type: 3}
+  trianglePrefab: {fileID: 6716881445756076283, guid: be5295ab5442e184aaf790acc3916203, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
