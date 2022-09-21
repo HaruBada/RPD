@@ -5,25 +5,14 @@ using UnityEngine;
 public class Figure : MonoBehaviour
 {
     GameManager gameManager;
+    
     List<GameObject> collisionObject = new List<GameObject>();
 
-    [SerializeField]
-    GameObject upgreatFigure;
+    public List<GameObject> GetcollisionObject => collisionObject;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collisionObject.Add(collision.gameObject);
-        if(gameManager.CurrentFigure && collisionObject.Count == 2)
-        {
-            for(int i = 0; i < 2; i++)
-            {
-                GameObject removeObject = collisionObject[0];
-                collisionObject.RemoveAt(0);
-                Destroy(removeObject);
-            }
-            GameObject upgreatedFigure = Instantiate(upgreatFigure);
-            Destroy(gameObject);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -45,7 +34,6 @@ public class Figure : MonoBehaviour
 
     private void OnMouseDown() {
         gameManager.CurrentFigure = this;
-        //Debug.Log("touch : " + this.name);
     }
 
     //private void OnMouseUp() {

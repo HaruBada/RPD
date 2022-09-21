@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Square0
-  - Square1Red
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -13,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - BG
   - 
   - 
   - 
@@ -40,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 2809388519
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
