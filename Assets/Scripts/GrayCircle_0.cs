@@ -24,7 +24,7 @@ public class GrayCircle_0 : MonoBehaviour, IFigure
     {
     }
 
-    public void Shot(Unit TargetUnit)
+    public void Shot()
     {
 
     }

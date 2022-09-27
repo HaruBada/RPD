@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1754454483137931588}
   m_Layer: 0
   m_Name: Square2Green
-  m_TagString: Untagged
+  m_TagString: Figure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

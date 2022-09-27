@@ -12,6 +12,9 @@ public class FigureAttack : MonoBehaviour
     AttackState attackState = AttackState.SearchTarget;
 
     [SerializeField]
+    GameObject bulletPrefab;
+
+    [SerializeField]
     float attackRange;
 
     [SerializeField]
@@ -72,7 +75,8 @@ public class FigureAttack : MonoBehaviour
 
             yield return new WaitForSeconds(attackCoolTime);
 
-            Debug.Log("Shot");
+            //Debug.Log("Shot");
+            shot(TargetUnit);
         }
     }
 
@@ -81,5 +85,11 @@ public class FigureAttack : MonoBehaviour
         StopCoroutine(attackState.ToString());
         attackState = newSate;
         StartCoroutine(attackState.ToString());
+    }
+
+    void shot(Unit TargetUnit)
+    {
+        var bullet = Instantiate(bulletPrefab,this.transform);
+        bullet.GetComponent<Bullet>().SetTarget(TargetUnit);
     }
 }

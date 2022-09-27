@@ -51,4 +51,11 @@ public class Unit : MonoBehaviour
             currentPathIndex++;
         }
     }
+
+    public void DieUnit()
+    {
+        _unitManager.Remove_Unit(this);
+        Destroy(gameObject);
+
+    }
 }

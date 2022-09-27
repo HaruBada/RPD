@@ -23,7 +23,7 @@ public enum FigureShapeType
 public interface IFigure
 {
     int damage { get; set; }
-    void Shot(Unit TargetUnit);
+    void Shot();
     void Combine();
     void Die();
 }
