@@ -7,7 +7,8 @@ public enum FigureColorType
     Gray,
     Red,
     Blue,
-    Green
+    Green,
+    Max
 }
 
 public enum FigureShapeType
@@ -17,7 +18,8 @@ public enum FigureShapeType
 	Cir,
 	Star,
 	Dia,
-	Heart
+	Heart,
+    Max
 }
 
 public interface IFigure

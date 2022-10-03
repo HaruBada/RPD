@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FigureGenerateButton : MonoBehaviour
 {
+
+
     [SerializeField]
     GameObject squarePrefab;
     [SerializeField]
@@ -11,23 +13,30 @@ public class FigureGenerateButton : MonoBehaviour
     [SerializeField]
     GameObject trianglePrefab;
 
+    GameManager _gameManager;
+
+    private void Awake()
+    {
+        _gameManager = GameManager.Instance;
+    }
 
     public void OnBotton()
     {
-        int figureRandom = Random.Range(0,100) % 3 + 1;
+        _gameManager.OnClickedSummon();
 
-        switch (figureRandom)
-        {
-            case 1:
-                Instantiate(squarePrefab);
-                break;
-            case 2:
-                Instantiate(circlePrefab);
-                break;
-            case 3:
-                Instantiate(trianglePrefab);
-                break;
-        }
+
+        //switch (figureRandom)
+        //{
+        //    case 1:
+        //        Instantiate(squarePrefab);
+        //        break;
+        //    case 2:
+        //        Instantiate(circlePrefab);
+        //        break;
+        //    case 3:
+        //        Instantiate(trianglePrefab);
+        //        break;
+        //}
 
     }
 }

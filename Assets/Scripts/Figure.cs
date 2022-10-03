@@ -4,25 +4,56 @@ using UnityEngine;
 
 public class Figure : MonoBehaviour
 {
-    GameManager gameManager;
+    GameManager _gameManager;
 
     int id;
+    FigureData _figureData;
+    public FigureData GetFigureData => _figureData;
     public int ID => id;
-    public FigureColorType _figureColorType;
     public FigureShapeType _figureShapeType;
+    public FigureColorType _figureColorType;
     public int _figureLevel;
 
+    SpriteRenderer _spriteRenderer;
+
     public FigureCombine _figureCombine;
+    FigureDataManager _figureDataManager;
+    SpriteManager _spriteManager;
+    CircleCollider2D _circleCollider;
 
-
+    public bool isCombine = false;
     // public List<GameObject> GetcollisionObject => collisionObject;
     // Start is called before the first frame update
-    void Start()
+
+    public void Init(FigureData data)
     {
-        gameManager = GameManager.Instance;
+        _figureData = data;
+        _figureShapeType = _figureData.shape;
+        _figureColorType = _figureData.color;
+        _figureLevel = _figureData.level;
+
+        
+        gameObject.name = $"{_figureShapeType} {_figureColorType} {_figureLevel}";
+        SetSortingOrder(_gameManager.GetFigureSortingOrder(transform.position.y) + 1);
+        ApplyFigure();
+    }
+
+    public void ApplyFigure()
+    {
+        _spriteRenderer.sprite = _spriteManager.GetFigureSprite(_figureData.sprite);
+    }
+    
+    void Awake()
+    {
+        _figureDataManager = FigureDataManager.Instance;
+        _figureDataManager.Get(_figureShapeType, _figureColorType, _figureLevel);
+        _gameManager = GameManager.Instance;
+        _spriteManager = SpriteManager.Instance;
         this.id = GetInstanceID();
 
         _figureCombine = this.GetComponent<FigureCombine>();
+        _spriteRenderer = this.GetComponent<SpriteRenderer>();
+        _circleCollider = this.GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -31,19 +62,36 @@ public class Figure : MonoBehaviour
         
     }
 
+    public void CheckMaxLevel()
+    {
+        if (_figureData.evolutions[0] != -1)
+            return;
+
+        _figureCombine.enabled = false;
+        //_circleCollider.enabled = false;
+    }    
+
     private void OnMouseDown() {
-        gameManager.CurrentFigure = this;
+        _gameManager.CurrentFigure = this;
     }
 
-    //private void OnMouseUp() {
-    //    gameManager.CurrentFigure = null;
-    //}
+    private void OnMouseUp()
+    {
+        SetSortingOrder(_gameManager.GetFigureSortingOrder(transform.position.y));
+    }
 
     private void OnMouseDrag()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         this.transform.position = pos;
+
+        SetSortingOrder(_gameManager.GetFigureSortingOrder(pos.y) + 100);
+    }
+
+    public void SetSortingOrder(int sortingOrder)
+    {
+        _spriteRenderer.sortingOrder = sortingOrder;
     }
 
 }

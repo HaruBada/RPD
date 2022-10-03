@@ -5,6 +5,7 @@ using UnityEngine;
 public class FigureCombine : MonoBehaviour
 {
     Figure _figure;
+    FigureData _figureData;
     CombineManager _combineManager;
 
     List<Figure> collisionObject = new List<Figure>();
@@ -22,7 +23,13 @@ public class FigureCombine : MonoBehaviour
     {
         Figure other = collision.GetComponent<Figure>();
 
+        if (_figure == null)
+            return;
+
         if (other == null)
+            return;
+
+        if (other.isCombine)
             return;
 
         //if (other.ID > _figure.ID)

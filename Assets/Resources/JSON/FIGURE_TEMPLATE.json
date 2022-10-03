@@ -1,0 +1,280 @@
+{
+	"FIGURE_TEMPLATE": {
+		"1": {
+			"shape": "Quad",
+			"color": "Gray",
+			"level": 0,
+			"sprite": "FigureSprites_0",
+			"evolutions": [
+				4,
+				7,
+				10
+			]
+		},
+		"2": {
+			"shape": "Tri",
+			"color": "Gray",
+			"level": 0,
+			"sprite": "FigureSprites_1",
+			"evolutions": [
+				5,
+				8,
+				11
+			]
+		},
+		"3": {
+			"shape": "Cir",
+			"color": "Gray",
+			"level": 0,
+			"sprite": "FigureSprites_2",
+			"evolutions": [
+				6,
+				9,
+				12
+			]
+		},
+		"4": {
+			"shape": "Quad",
+			"color": "Red",
+			"level": 1,
+			"sprite": "FigureSprites_10",
+			"evolutions": [
+				13
+			]
+		},
+		"5": {
+			"shape": "Tri",
+			"color": "Red",
+			"level": 1,
+			"sprite": "FigureSprites_11",
+			"evolutions": [
+				14
+			]
+		},
+		"6": {
+			"shape": "Cir",
+			"color": "Red",
+			"level": 1,
+			"sprite": "FigureSprites_6",
+			"evolutions": [
+				15
+			]
+		},
+		"7": {
+			"shape": "Quad",
+			"color": "Blue",
+			"level": 1,
+			"sprite": "FigureSprites_15",
+			"evolutions": [
+				16
+			]
+		},
+		"8": {
+			"shape": "Tri",
+			"color": "Blue",
+			"level": 1,
+			"sprite": "FigureSprites_16",
+			"evolutions": [
+				17
+			]
+		},
+		"9": {
+			"shape": "Cir",
+			"color": "Blue",
+			"level": 1,
+			"sprite": "FigureSprites_17",
+			"evolutions": [
+				18
+			]
+		},
+		"10": {
+			"shape": "Quad",
+			"color": "Green",
+			"level": 1,
+			"sprite": "FigureSprites_21",
+			"evolutions": [
+				19
+			]
+		},
+		"11": {
+			"shape": "Tri",
+			"color": "Green",
+			"level": 1,
+			"sprite": "FigureSprites_22",
+			"evolutions": [
+				20
+			]
+		},
+		"12": {
+			"shape": "Cir",
+			"color": "Green",
+			"level": 1,
+			"sprite": "FigureSprites_23",
+			"evolutions": [
+				21
+			]
+		},
+		"13": {
+			"shape": "Quad",
+			"color": "Red",
+			"level": 2,
+			"sprite": "FigureSprites_3",
+			"evolutions": [
+				22
+			]
+		},
+		"14": {
+			"shape": "Tri",
+			"color": "Red",
+			"level": 2,
+			"sprite": "FigureSprites_4",
+			"evolutions": [
+				23
+			]
+		},
+		"15": {
+			"shape": "Cir",
+			"color": "Red",
+			"level": 2,
+			"sprite": "FigureSprites_5",
+			"evolutions": [
+				24
+			]
+		},
+		"16": {
+			"shape": "Quad",
+			"color": "Blue",
+			"level": 2,
+			"sprite": "FigureSprites_12",
+			"evolutions": [
+				25
+			]
+		},
+		"17": {
+			"shape": "Tri",
+			"color": "Blue",
+			"level": 2,
+			"sprite": "FigureSprites_13",
+			"evolutions": [
+				26
+			]
+		},
+		"18": {
+			"shape": "Cir",
+			"color": "Blue",
+			"level": 2,
+			"sprite": "FigureSprites_14",
+			"evolutions": [
+				27
+			]
+		},
+		"19": {
+			"shape": "Quad",
+			"color": "Green",
+			"level": 2,
+			"sprite": "FigureSprites_24",
+			"evolutions": [
+				28
+			]
+		},
+		"20": {
+			"shape": "Tri",
+			"color": "Green",
+			"level": 2,
+			"sprite": "FigureSprites_25",
+			"evolutions": [
+				29
+			]
+		},
+		"21": {
+			"shape": "Cir",
+			"color": "Green",
+			"level": 2,
+			"sprite": "FigureSprites_26",
+			"evolutions": [
+				30
+			]
+		},
+		"22": {
+			"shape": "Quad",
+			"color": "Red",
+			"level": 3,
+			"sprite": "FigureSprites_7",
+			"evolutions": [
+				-1
+			]
+		},
+		"23": {
+			"shape": "Tri",
+			"color": "Red",
+			"level": 3,
+			"sprite": "FigureSprites_8",
+			"evolutions": [
+				-1
+			]
+		},
+		"24": {
+			"shape": "Cir",
+			"color": "Red",
+			"level": 3,
+			"sprite": "FigureSprites_9",
+			"evolutions": [
+				-1
+			]
+		},
+		"25": {
+			"shape": "Quad",
+			"color": "Blue",
+			"level": 3,
+			"sprite": "FigureSprites_18",
+			"evolutions": [
+				-1
+			]
+		},
+		"26": {
+			"shape": "Tri",
+			"color": "Blue",
+			"level": 3,
+			"sprite": "FigureSprites_19",
+			"evolutions": [
+				-1
+			]
+		},
+		"27": {
+			"shape": "Cir",
+			"color": "Blue",
+			"level": 3,
+			"sprite": "FigureSprites_20",
+			"evolutions": [
+				-1
+			]
+		},
+		"28": {
+			"shape": "Quad",
+			"color": "Green",
+			"level": 3,
+			"sprite": "FigureSprites_27",
+			"evolutions": [
+				-1
+			]
+		},
+		"29": {
+			"shape": "Tri",
+			"color": "Green",
+			"level": 3,
+			"sprite": "FigureSprites_28",
+			"evolutions": [
+				-1
+			]
+		},
+		"30": {
+			"shape": "Cir",
+			"color": "Green",
+			"level": 3,
+			"sprite": "FigureSprites_29",
+			"evolutions": [
+				-1
+			]
+		}
+	}
+}
