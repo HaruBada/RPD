@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6179922894977484678}
   - component: {fileID: 4592678467832670884}
-  - component: {fileID: -1625134759997870619}
   - component: {fileID: 915426626538801741}
   - component: {fileID: -7655813367769517074}
   - component: {fileID: 3085770073012118330}
   - component: {fileID: 2712812627122738438}
   - component: {fileID: 8484835600504227665}
+  - component: {fileID: 4654511535582607340}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Figure
@@ -90,27 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &-1625134759997870619
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477985693439521916}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &915426626538801741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,10 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93da408702c536b42b8653f161b7f685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _figureColorType: 0
   _figureShapeType: 2
+  _figureColorType: 0
   _figureLevel: 0
   _figureCombine: {fileID: 0}
+  isCombine: 0
 --- !u!114 &-7655813367769517074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +163,24 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4882597593477660806, guid: a1faed0d0bb35ef43b19fd27ee7fb886, type: 3}
   attackRange: 1
   attackCoolTime: 1
+--- !u!50 &4654511535582607340
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477985693439521916}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
