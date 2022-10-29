@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6179922894977484678}
   - component: {fileID: 4592678467832670884}
   - component: {fileID: 915426626538801741}
-  - component: {fileID: -7655813367769517074}
   - component: {fileID: 3085770073012118330}
   - component: {fileID: 2712812627122738438}
   - component: {fileID: 8484835600504227665}
@@ -107,18 +106,6 @@ MonoBehaviour:
   _figureLevel: 0
   _figureCombine: {fileID: 0}
   isCombine: 0
---- !u!114 &-7655813367769517074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477985693439521916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0325ab149f76cee44b17828ce241f5df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3085770073012118330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4882597593477660806, guid: a1faed0d0bb35ef43b19fd27ee7fb886, type: 3}
-  attackRange: 1
+  attackRange: 2
   attackCoolTime: 1
 --- !u!50 &4654511535582607340
 Rigidbody2D:

@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class FigureGenerateButton : MonoBehaviour
 {
-
-
-    [SerializeField]
-    GameObject squarePrefab;
-    [SerializeField]
-    GameObject circlePrefab;
-    [SerializeField]
-    GameObject trianglePrefab;
-
     GameManager _gameManager;
 
     private void Awake()
@@ -23,20 +14,6 @@ public class FigureGenerateButton : MonoBehaviour
     public void OnBotton()
     {
         _gameManager.OnClickedSummon();
-
-
-        //switch (figureRandom)
-        //{
-        //    case 1:
-        //        Instantiate(squarePrefab);
-        //        break;
-        //    case 2:
-        //        Instantiate(circlePrefab);
-        //        break;
-        //    case 3:
-        //        Instantiate(trianglePrefab);
-        //        break;
-        //}
 
     }
 }

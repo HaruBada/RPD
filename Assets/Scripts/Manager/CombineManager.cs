@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class CombineManager : Singleton<CombineManager>
 {
-    public List<IFigure> figures = new List<IFigure>();
     GameManager _gameManager;
 
     private void Awake()
     {
         _gameManager = GameManager.Instance;
-    }
-
-    public void Add_FIgure(IFigure figure)
-    {
-        figures.Add(figure);
     }
 
     public void Combine(List<Figure> collissionObject, Figure mainobject)

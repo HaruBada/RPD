@@ -20,6 +20,12 @@ public class FigureAttack : MonoBehaviour
     [SerializeField]
     float attackCoolTime;
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(this.transform.position, attackRange);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,10 +79,9 @@ public class FigureAttack : MonoBehaviour
                 break;
             }
 
-            yield return new WaitForSeconds(attackCoolTime);
-
-            //Debug.Log("Shot");
             shot(TargetUnit);
+
+            yield return new WaitForSeconds(attackCoolTime);
         }
     }
 
