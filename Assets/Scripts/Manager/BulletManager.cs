@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ObjectPoolManager : Singleton<ObjectPoolManager>
+public class BulletManager : Singleton<BulletManager>
 {
 
     [SerializeField]
@@ -32,6 +32,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     Bullet CreateBullet()
     {
         Bullet bullet = Instantiate(prefabBullet).GetComponent<Bullet>();
+        bullet.transform.SetParent(this.transform);
         bullet.SetManagedPool(_pool);
         return bullet;
     }

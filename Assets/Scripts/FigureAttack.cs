@@ -9,12 +9,9 @@ public class FigureAttack : MonoBehaviour
     UnitManager _unitManager;
     Unit TargetUnit;
 
-    ObjectPoolManager _objectPoolManager;
+    BulletManager _bulletManager;
 
     AttackState attackState = AttackState.SearchTarget;
-
-    [SerializeField]
-    GameObject bulletPrefab;
 
     [SerializeField]
     float attackRange;
@@ -31,9 +28,9 @@ public class FigureAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!_objectPoolManager)
+        if (!_bulletManager)
         {
-            _objectPoolManager = ObjectPoolManager.Instance;
+            _bulletManager = BulletManager.Instance;
         }
         if (!_unitManager)
         {
@@ -101,7 +98,7 @@ public class FigureAttack : MonoBehaviour
     void shot(Unit TargetUnit)
     {
         //var bullet = Instantiate(bulletPrefab,this.transform);
-        var bullet = _objectPoolManager._pool.Get();
+        var bullet = _bulletManager._pool.Get();
         bullet.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
         bullet.GetComponent<Bullet>().SetTarget(TargetUnit);
     }
