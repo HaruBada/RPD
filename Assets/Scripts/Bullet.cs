@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,6 +9,18 @@ public class Bullet : MonoBehaviour
 
     [SerializeField]
     float bulletSpeed;
+
+    IObjectPool<Bullet> _managedPool;
+
+    public void SetManagedPool(IObjectPool<Bullet> _pool)
+    {
+        _managedPool = _pool;
+    }
+
+    public void DestroyBullet()
+    {
+        _managedPool.Release(this);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +45,8 @@ public class Bullet : MonoBehaviour
         else
         {
             Debug.Log("no target");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            DestroyBullet();
         }
     }
 
@@ -44,6 +58,7 @@ public class Bullet : MonoBehaviour
         Debug.Log("trigger");
 
         collision.GetComponent<Unit>().DieUnit();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        DestroyBullet();
     }
 }
