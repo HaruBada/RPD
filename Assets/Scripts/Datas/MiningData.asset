@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c6f78a9948e3b4fb80c99c5c61e5a2, type: 3}
-  m_Name: WaveData
+  m_Script: {fileID: 11500000, guid: c9af126022e27f34eb6f3c2c56c96db2, type: 3}
+  m_Name: MiningData
   m_EditorClassIdentifier: 
-  waveDuringTime: 75
-  startingUnitNumber: 60
-  unitIncreaseRate: 1
-  startUnitHp: 2
-  unitHpIncreaseRate: 1
+  maxMiningPower: 100
+  mineralIncreaseRate: 1.2

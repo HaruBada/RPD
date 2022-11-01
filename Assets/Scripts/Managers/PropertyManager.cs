@@ -5,7 +5,6 @@ using TMPro;
 
 public class PropertyManager : Singleton<PropertyManager>
 {
-    
     int _mineral;
     public int Mineral
     {

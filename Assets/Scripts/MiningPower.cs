@@ -9,18 +9,16 @@ public class MiningPower : MonoBehaviour
     public TextMeshProUGUI uiMineral;
     PropertyManager propertyManager;
 
-    int miningPower;
-    int maxMiningPower = 100;
+    [SerializeField]
+    MiningData miningData;
 
-    // 미네랄 증가율
-    int mineralIncreasing;
+    int miningPower;
 
     // Start is called before the first frame update
     void Start()
     {
         propertyManager = PropertyManager.Instance;
-        miningPower = 0;
-        mineralIncreasing = 10;
+        miningPower = miningData.StartMiningPower;
         StartCoroutine("Mining");
     }
 
@@ -28,7 +26,7 @@ public class MiningPower : MonoBehaviour
     {
         while(true)
         {
-            propertyManager.Mineral += mineralIncreasing;
+            propertyManager.Mineral = Mathf.RoundToInt(propertyManager.Mineral + miningData.MineralIncreaseRate * (miningPower+1));
             uiMineral.text = "mineral : " + propertyManager.Mineral;
             yield return new WaitForSeconds(1.0f);
         }
@@ -37,14 +35,13 @@ public class MiningPower : MonoBehaviour
 
     public void MiningPowerUpgrateButton()
     {
-        if (miningPower == maxMiningPower)
+        if (miningPower == miningData.MaxMiningPower)
         {
             Debug.Log("Max Mining Power! current mining power is " + miningPower);
             return;
         }
         miningPower += 1;
-        mineralIncreasing += 1;
-        uiMiningPower.text = "Mining Power Upgrate : " + miningPower + "/" + maxMiningPower;
+        uiMiningPower.text = "Mining Power Upgrate : " + miningPower + "/" + miningData.MaxMiningPower;
     }
 
 }

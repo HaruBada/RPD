@@ -17,14 +17,14 @@ public class WaveData : ScriptableObject
     public int StartingUnitNumber { get { return startingUnitNumber; } }
 
     [SerializeField]
-    int unitIncreaseWidth;
-    public int UnitIncreaseWidth { get { return unitIncreaseWidth; } }
+    int unitIncreaseRate;
+    public int UnitIncreaseRate { get { return unitIncreaseRate; } }
 
     [SerializeField]
     int startUnitHp;
     public int StartUnitHp { get { return startUnitHp; } }
 
     [SerializeField]
-    int unitHpIncreaseWidth;
-    public int UnitHpIncreaseWidth { get { return unitHpIncreaseWidth; } }
+    int unitHpIncreaseRate;
+    public int UnitHpIncreaseRate { get { return unitHpIncreaseRate; } }
 }

@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiMiningPower: {fileID: 650391107}
   uiMineral: {fileID: 1571443641}
+  miningData: {fileID: 11400000, guid: 2f75a7ff94e585946b3bfe3da16c9f85, type: 2}
 --- !u!1 &2028967200
 GameObject:
   m_ObjectHideFlags: 0
