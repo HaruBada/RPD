@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Unit : MonoBehaviour
 {
@@ -13,10 +14,23 @@ public class Unit : MonoBehaviour
     [SerializeField]
     float UnitSpeed;
 
+    ObjectPool<Unit> _managedPool;
+
+    public void SetManagedPool(ObjectPool<Unit> _pool)
+    {
+        _managedPool = _pool;
+    }
+
+    public void DestroyUnit()
+    {
+        _managedPool.Release(this);
+    }
+
     public void Init(UnitPaths unitPaths)
     {
         _unitPaths = unitPaths;
     }
+
 
     private void Start()
     {
@@ -56,6 +70,9 @@ public class Unit : MonoBehaviour
     {
         _unitManager.Remove_Unit(this);
         Destroy(gameObject);
+        //DestroyUnit();
 
     }
+
+
 }

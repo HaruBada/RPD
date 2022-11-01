@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class UnitManager : Singleton<UnitManager>
 {
@@ -9,6 +10,9 @@ public class UnitManager : Singleton<UnitManager>
 
     [SerializeField]
     GameObject unitPrefab;
+
+    public ObjectPool<Unit> _unitPool;
+
     [SerializeField]
     GameObject startUnitPosition;
 
@@ -16,6 +20,11 @@ public class UnitManager : Singleton<UnitManager>
     UnitPaths unitPaths;
 
     public UnitPaths GetUnitPaths => unitPaths;
+
+    private void Awake()
+    {
+        _unitPool = new ObjectPool<Unit>(CreateUnit,OnGetUnit,OnReleaseUnit,OnDestroyUnit,maxSize:40);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +43,10 @@ public class UnitManager : Singleton<UnitManager>
         while (true)
         {
             Vector3 pos = startUnitPosition.transform.position;
-            GameObject go = Instantiate(unitPrefab, pos, startUnitPosition.transform.rotation);
-            go.transform.SetParent(this.transform);
-            Unit ut = go.GetComponent<Unit>();
-            ut.Init(unitPaths);
+            Unit unit = Instantiate(unitPrefab, pos, startUnitPosition.transform.rotation).GetComponent<Unit>();
+            //Unit unit = _unitPool.Get();
+            unit.transform.SetParent(this.transform);
+            unit.Init(unitPaths);
 
             yield return new WaitForSeconds(0.5f);
         }
@@ -56,5 +65,28 @@ public class UnitManager : Singleton<UnitManager>
     void Update()
     {
         
+    }
+
+    Unit CreateUnit()
+    {
+        Unit unit = Instantiate(unitPrefab, startUnitPosition.transform).GetComponent<Unit>();
+        unit.transform.SetParent(this.transform);
+        unit.SetManagedPool(_unitPool);
+        return unit;
+    }
+
+    void OnGetUnit(Unit unit)
+    {
+        unit.gameObject.SetActive(true);
+    }
+
+    void OnReleaseUnit(Unit unit)
+    {
+        unit.gameObject.SetActive(false);
+    }
+
+    private void OnDestroyUnit(Unit unit)
+    {
+        Destroy(unit.gameObject);
     }
 }

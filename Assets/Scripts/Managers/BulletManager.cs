@@ -7,14 +7,14 @@ public class BulletManager : Singleton<BulletManager>
 {
 
     [SerializeField]
-    GameObject prefabBullet;
+    GameObject bulletPrefab;
 
-    public IObjectPool<Bullet> _pool;
+    public ObjectPool<Bullet> _bulletpool;
     
 
     private void Awake()
     {
-        _pool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnReleaseBullet, OnDestroyBullet, maxSize: 20);
+        _bulletpool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnReleaseBullet, OnDestroyBullet, maxSize: 20);
     }
 
     // Start is called before the first frame update
@@ -31,15 +31,16 @@ public class BulletManager : Singleton<BulletManager>
 
     Bullet CreateBullet()
     {
-        Bullet bullet = Instantiate(prefabBullet).GetComponent<Bullet>();
+        Bullet bullet = Instantiate(bulletPrefab).GetComponent<Bullet>();
         bullet.transform.SetParent(this.transform);
-        bullet.SetManagedPool(_pool);
+        bullet.SetManagedPool(_bulletpool);
         return bullet;
     }
 
     void OnGetBullet(Bullet bullet)
     {
         bullet.gameObject.SetActive(true);
+
     }
 
     void OnReleaseBullet(Bullet bullet)

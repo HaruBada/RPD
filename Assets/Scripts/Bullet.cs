@@ -10,9 +10,9 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float bulletSpeed;
 
-    IObjectPool<Bullet> _managedPool;
+    ObjectPool<Bullet> _managedPool;
 
-    public void SetManagedPool(IObjectPool<Bullet> _pool)
+    public void SetManagedPool(ObjectPool<Bullet> _pool)
     {
         _managedPool = _pool;
     }

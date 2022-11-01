@@ -8,18 +8,18 @@ public class WaveManager : Singleton<WaveManager>
     public TextMeshProUGUI uiWave;
     public TextMeshProUGUI uiWaveTime;
 
+    [SerializeField]
+    WaveData waveData;
+
     int wave;
     float timer;
-
-    [SerializeField]
-    float waveduringTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        wave = 1;
-        timer = waveduringTime;
-        uiWaveTime.text = Mathf.Floor(waveduringTime / 60) + " : " + waveduringTime % 60;
+        wave = waveData.StartWave;
+        timer = waveData.WaveDuringTime;
+        uiWaveTime.text = Mathf.Floor(timer / 60) + " : " + timer % 60;
         StartCoroutine("Wave");
     }
 
@@ -35,9 +35,9 @@ public class WaveManager : Singleton<WaveManager>
         {
             if(timer == 0)
             {
-                timer = waveduringTime;
+                timer = waveData.WaveDuringTime;
                 wave += 1;
-                uiWave.text = "Wave : " + wave;
+                uiWave.text = "Wave " + wave;
             }
 
             yield return new WaitForSeconds(1.0f);

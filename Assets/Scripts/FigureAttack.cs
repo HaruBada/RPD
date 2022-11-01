@@ -98,7 +98,7 @@ public class FigureAttack : MonoBehaviour
     void shot(Unit TargetUnit)
     {
         //var bullet = Instantiate(bulletPrefab,this.transform);
-        var bullet = _bulletManager._pool.Get();
+        var bullet = _bulletManager._bulletpool.Get();
         bullet.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
         bullet.GetComponent<Bullet>().SetTarget(TargetUnit);
     }
